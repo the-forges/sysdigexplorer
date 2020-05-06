@@ -1,4 +1,4 @@
-module github.ibm.com/ZaaS/sysdigexplorer
+module github.com/the-forges/sysdigexplorer
 
 go 1.14
 

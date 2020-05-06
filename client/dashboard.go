@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.ibm.com/ZaaS/sysdigexplorer/model"
+	"github.com/the-forges/sysdigexplorer/model"
 )
 
 type Dashboard struct {

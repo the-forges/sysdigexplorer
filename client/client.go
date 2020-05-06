@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.ibm.com/ZaaS/sysdigexplorer/errors"
+	"github.com/the-forges/sysdigexplorer/errors"
 )
 
 // Client encapsulates connection details
