@@ -1,6 +1,7 @@
 package client
 
 import (
+	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -53,9 +54,18 @@ func (c *Client) Valid() bool {
 
 // Request takes a method, an endpoint, and a map of additional options in
 // order to use the API
+// When sending a request with a body options should contain a `body` key that is an io.Reader type
 func (c *Client) Request(method, endpoint string, options map[string]interface{}) ([]byte, error) {
+	var (
+		reqBody io.Reader
+	)
+	
+	if b := options["body"]; b != nil {
+		reqBody = b.(io.Reader)
+	}
+
 	url := c.url + endpoint
-	r, err := http.NewRequest(method, url, nil) // TODO: request body
+	r, err := http.NewRequest(method, url, reqBody)
 	if err != nil {
 		return nil, err
 	}
